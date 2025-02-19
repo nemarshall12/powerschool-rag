@@ -1,0 +1,22 @@
+# Ignore environment file(s) that contain sensitive information
+api/.env
+
+# Ignore Python cache files and directories
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ignore virtual environment directories
+venv/
+env/
+.venv/
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore log files
+*.log
+
+# Optionally ignore other temporary files or directories
+tmp/

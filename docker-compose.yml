@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    container_name: query_api
+    ports:
+      - "8000:8000"
+    networks:
+      - app_network
+
+  ui:
+    build:
+      context: ./ui
+      dockerfile: Dockerfile
+    container_name: streamlit_ui
+    ports:
+      - "8501:8501"
+    depends_on:
+      - api
+    networks:
+      - app_network
+
+networks:
+  app_network:
+    driver: bridge

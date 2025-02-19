@@ -1,0 +1,21 @@
+# Python cache files
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment directory (if it exists locally)
+venv/
+
+# Local environment file (don’t bake secrets into the image)
+#.env
+
+# Git files
+.git
+.gitignore
+
+# Log files
+*.log
+
+# Optionally exclude the data folder if you plan to mount it as a volume
+#data/

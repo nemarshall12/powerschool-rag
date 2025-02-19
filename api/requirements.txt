@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+requests
+beautifulsoup4
+readability-lxml
+numpy
+faiss-cpu
+sentence-transformers
+python-dotenv
+openai
+lxml_html_clean
