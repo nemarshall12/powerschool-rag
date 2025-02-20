@@ -5,8 +5,9 @@ services:
       context: ./api
       dockerfile: Dockerfile
     container_name: query_api
-    ports:
-      - "8000:8000"
+    # Use 'expose' so this port is accessible on the Docker network but not published to the host
+    expose:
+      - "8000"
     networks:
       - app_network
 
@@ -15,10 +16,25 @@ services:
       context: ./ui
       dockerfile: Dockerfile
     container_name: streamlit_ui
-    ports:
-      - "8501:8501"
+    expose:
+      - "8501"
     depends_on:
       - api
+    networks:
+      - app_network
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx-proxy
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      # Mount your custom NGINX configuration into the container
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - api
+      - ui
     networks:
       - app_network
 
